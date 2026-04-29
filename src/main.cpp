@@ -1,12 +1,15 @@
 #include "raylib.h"
+#include "Player.h"
 
 int main()
 {
     InitWindow(1280, 720, "Driftwood: Survival Prototype");
     SetTargetFPS(60);
 
-    Vector2 playerPos = {640.0f, 360.0f};
-    float playerSpeed = 250.0f;
+    Player player{
+        {640.0f, 360.0f},
+        250.0f
+    };
 
     while (!WindowShouldClose())
     {
@@ -14,22 +17,22 @@ int main()
 
         if (IsKeyDown(KEY_W))
         {
-            playerPos.y -= playerSpeed * deltaTime;
+            player.position.y -= player.speed * deltaTime;
         }
 
         if (IsKeyDown(KEY_S))
         {
-            playerPos.y += playerSpeed * deltaTime;
+            player.position.y += player.speed * deltaTime;
         }
 
         if (IsKeyDown(KEY_A))
         {
-            playerPos.x -= playerSpeed * deltaTime;
+            player.position.x -= player.speed * deltaTime;
         }
 
         if (IsKeyDown(KEY_D))
         {
-            playerPos.x += playerSpeed * deltaTime;
+            player.position.x += player.speed * deltaTime;
         }
         
 
@@ -40,7 +43,7 @@ int main()
         DrawText("Driftwood: Survival Prototype", 40, 40, 30, DARKGREEN);
         DrawText("Move with WASD keys", 40, 80, 20, DARKGRAY);
 
-        DrawRectangleV(playerPos, {40.0f, 40.0f}, RED);
+        DrawRectangleV(player.position, { 40.0f, 40.0f }, BROWN);
 
         EndDrawing();
     }
