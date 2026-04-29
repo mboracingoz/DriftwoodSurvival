@@ -1,5 +1,7 @@
 #include "raylib.h"
 #include "Player.h"
+#include "InputManager.h"
+
 
 int main()
 {
@@ -10,30 +12,15 @@ int main()
         {640.0f, 360.0f},
         250.0f
     };
+    InputManager input;
 
     while (!WindowShouldClose())
     {
         float deltaTime = GetFrameTime();
 
-        if (IsKeyDown(KEY_W))
-        {
-            player.position.y -= player.speed * deltaTime;
-        }
-
-        if (IsKeyDown(KEY_S))
-        {
-            player.position.y += player.speed * deltaTime;
-        }
-
-        if (IsKeyDown(KEY_A))
-        {
-            player.position.x -= player.speed * deltaTime;
-        }
-
-        if (IsKeyDown(KEY_D))
-        {
-            player.position.x += player.speed * deltaTime;
-        }
+        UpdateInput(input);
+        player.position.x += input.moveDirection.x * player.speed * deltaTime;
+        player.position.y += input.moveDirection.y * player.speed * deltaTime;
         
 
 
