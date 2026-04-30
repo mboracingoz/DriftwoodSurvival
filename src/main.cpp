@@ -3,6 +3,7 @@
 #include "InputManager.h"
 #include "GameState.h"
 #include "HUDSystem.h"
+#include "Constants.h"
 
 void ProcessInput(GameState& game)
 {
@@ -43,9 +44,9 @@ int main()
 
     game.player = {
         { 640.0f, 360.0f },
-        140.0f,
-        220.0f,
-        100.0f,
+        GameConstants::PLAYER_WALK_SPEED,
+        GameConstants::PLAYER_RUN_SPEED,
+        GameConstants::PLAYER_START_STAMINA,
         false
     };
 

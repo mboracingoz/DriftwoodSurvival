@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "raymath.h"
+#include "Constants.h"
 
 void UpdatePlayer(Player& player, Vector2 direction, float deltaTime, bool runPressed)
 {
@@ -13,11 +14,11 @@ void UpdatePlayer(Player& player, Vector2 direction, float deltaTime, bool runPr
     if (player.isRunning)
     {
         currentSpeed = player.runSpeed;
-        player.stamina -= 20.0f * deltaTime;
+       player.stamina -= GameConstants::STAMINA_DRAIN_PER_SECOND * deltaTime;
     }
     else
     {
-        player.stamina += 15.0f * deltaTime;
+        player.stamina += GameConstants::STAMINA_RECOVER_PER_SECOND * deltaTime;
     }
 
     if (player.stamina < 0.0f)
@@ -25,9 +26,9 @@ void UpdatePlayer(Player& player, Vector2 direction, float deltaTime, bool runPr
         player.stamina = 0.0f;
     }
 
-    if (player.stamina > 100.0f)
+    if (player.stamina > GameConstants::PLAYER_MAX_STAMINA)
     {
-        player.stamina = 100.0f;
+        player.stamina = GameConstants::PLAYER_MAX_STAMINA;
     }
 
     player.position.x += direction.x * currentSpeed * deltaTime;

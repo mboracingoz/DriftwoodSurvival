@@ -1,5 +1,6 @@
 #include "HUDSystem.h"
 #include "raylib.h"
+#include "Constants.h"
 
 void DrawHUD(const GameState& game)
 {
@@ -12,7 +13,7 @@ void DrawHUD(const GameState& game)
 
     DrawRectangle(barX, barY, barWidth, barHeight, GRAY);
 
-    float staminaPercent = game.player.stamina / 100.0f;
+    float staminaPercent = game.player.stamina / GameConstants::PLAYER_MAX_STAMINA;
 
     if (staminaPercent < 0.0f)
     {
