@@ -19,9 +19,7 @@ int main()
         float deltaTime = GetFrameTime();
 
         UpdateInput(input);
-        player.position.x += input.moveDirection.x * player.speed * deltaTime;
-        player.position.y += input.moveDirection.y * player.speed * deltaTime;
-        
+        UpdatePlayer(player, input.moveDirection, deltaTime);
 
 
         BeginDrawing();

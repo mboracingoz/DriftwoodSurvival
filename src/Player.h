@@ -7,3 +7,5 @@ struct Player
     Vector2 position;
     float speed;
 };
+
+void UpdatePlayer(Player& player, Vector2 direction, float deltaTime);
