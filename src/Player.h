@@ -9,8 +9,10 @@ struct Player
     float walkSpeed;
     float runSpeed;
 
+    float hunger;
     float stamina;
     bool isRunning;
+
 };
 
 void UpdatePlayer(Player& player, Vector2 direction, float deltaTime, bool runPressed );

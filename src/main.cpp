@@ -46,6 +46,7 @@ int main()
         { 640.0f, 360.0f },
         GameConstants::PLAYER_WALK_SPEED,
         GameConstants::PLAYER_RUN_SPEED,
+        GameConstants::PLAYER_START_HUNGER,
         GameConstants::PLAYER_START_STAMINA,
         false
     };
