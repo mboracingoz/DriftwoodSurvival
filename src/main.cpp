@@ -2,7 +2,7 @@
 #include "Player.h"
 #include "InputManager.h"
 #include "GameState.h"
-
+#include "HUDSystem.h"
 
 void ProcessInput(GameState& game)
 {
@@ -11,10 +11,12 @@ void ProcessInput(GameState& game)
 
 void UpdateGame(GameState& game, float deltaTime)
 {
-    UpdatePlayer(game.player, 
-    game.input.moveDirection, 
-    deltaTime,
-    game.input.runPressed);
+    UpdatePlayer(
+        game.player,
+        game.input.moveDirection,
+        deltaTime,
+        game.input.runPressed
+    );
 }
 
 
@@ -26,6 +28,7 @@ void DrawGame(const GameState& game){
     DrawText("Move with WASD keys", 40, 80, 20, DARKGRAY);
 
     DrawRectangleV(game.player.position, { 40.0f, 40.0f }, BROWN);
+    DrawHUD(game);
 
     EndDrawing();
 }
@@ -40,11 +43,13 @@ int main()
 
     game.player = {
         { 640.0f, 360.0f },
-        140.0f, // walkSpeed
-        240.0f, // runSpeed
-        100.0f, // stamina
-        false    // isRunning
+        140.0f,
+        220.0f,
+        100.0f,
+        false
     };
+
+
     while (!WindowShouldClose())
     {
        
