@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2
 LIBS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
-SRC = src/main.cpp
+SRC = src/main.cpp src/Player.cpp
 OUT = game
 
 all:

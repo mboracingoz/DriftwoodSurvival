@@ -7,6 +7,7 @@ struct InputManager
 {
     /* data */
     Vector2 moveDirection;
+    bool runPressed;
 };
 
 
@@ -22,6 +23,7 @@ inline void UpdateInput(InputManager& input){
     if (Vector2Length(input.moveDirection) > 0.90)
     {
         input.moveDirection = Vector2Normalize(input.moveDirection);
+        input.runPressed = IsKeyDown(KEY_LEFT_SHIFT);
         /* code */
     }
     

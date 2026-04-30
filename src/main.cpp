@@ -11,7 +11,10 @@ void ProcessInput(GameState& game)
 
 void UpdateGame(GameState& game, float deltaTime)
 {
-    UpdatePlayer(game.player, game.input.moveDirection, deltaTime);
+    UpdatePlayer(game.player, 
+    game.input.moveDirection, 
+    deltaTime,
+    game.input.runPressed);
 }
 
 
@@ -37,10 +40,11 @@ int main()
 
     game.player = {
         { 640.0f, 360.0f },
-        250.0f
+        140.0f, // walkSpeed
+        240.0f, // runSpeed
+        100.0f, // stamina
+        false    // isRunning
     };
-    InputManager input;
-
     while (!WindowShouldClose())
     {
        

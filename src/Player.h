@@ -5,7 +5,12 @@ struct Player
 {
     /* data */
     Vector2 position;
-    float speed;
+
+    float walkSpeed;
+    float runSpeed;
+
+    float stamina;
+    bool isRunning;
 };
 
-void UpdatePlayer(Player& player, Vector2 direction, float deltaTime);
+void UpdatePlayer(Player& player, Vector2 direction, float deltaTime, bool runPressed );
